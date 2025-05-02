@@ -23,6 +23,26 @@ class MyApp extends StatelessWidget {
           shape: const Border(bottom: BorderSide(color: Colors.grey)),
           //shadowColor: Colors.black.withOpacity(0),
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll<Color>(
+              Color.fromARGB(255, 0, 137, 237),
+            ),
+            shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll<Color>(
+              Color.fromARGB(255, 0, 137, 237),
+            ),
+            shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       home: const LoginPage(),

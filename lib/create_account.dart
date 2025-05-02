@@ -22,7 +22,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: const Color.fromARGB(255, 40, 12, 96).withOpacity(0.4),
+            color: const Color.fromARGB(255, 32, 32, 32).withValues(alpha: 0.4),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -35,7 +35,10 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   physics: const ClampingScrollPhysics(),
                   children: [
                     const Center(
-                      child: Text('Crie sua conta', textScaleFactor: 1.3),
+                      child: Text(
+                        'Crie sua conta',
+                        textScaler: TextScaler.linear(1.3),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     CustomTextField(
@@ -160,7 +163,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     const SizedBox(height: 20),
                     const Text(
                       'O sistema College+ pede permissão para acessar seus dados básicos de navegação durante o uso da aplicação.',
-                      textScaleFactor: 1,
+                      textScaler: TextScaler.linear(1),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

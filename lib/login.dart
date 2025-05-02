@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: const Color.fromARGB(255, 40, 12, 96).withOpacity(0.4),
+            color: const Color.fromARGB(255, 32, 32, 32).withValues(alpha: 0.4),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -35,16 +35,43 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const SizedBox(height: 20),
                     const SizedBox(
-                      height: 40,
-                      width: 300,
-                      child: Text(
-                        'Venha conhecer a universidade dos seus sonhos',
-                        textScaleFactor: 1.3,
+                      height: 45,
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Bem vindo ao:',
+                                textScaler: TextScaler.linear(1),
+                              ),
+                              Text(
+                                'Guess The Number!',
+                                textScaler: TextScaler.linear(1),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Não tem conta?',
+                                textScaler: TextScaler.linear(1),
+                              ),
+                              Text(
+                                'Cadastre-se',
+                                textScaler: TextScaler.linear(1),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 20),
                     const Center(
-                      child: Text('Acesse sua conta', textScaleFactor: 1.3),
+                      child: Text('Login', textScaler: TextScaler.linear(2.5)),
                     ),
                     const SizedBox(height: 20),
                     CustomTextField(
