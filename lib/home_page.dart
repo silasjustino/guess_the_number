@@ -49,9 +49,7 @@ class _HomePageState extends State<HomePage> {
                 Positioned.fill(
                   child: InkWell(
                     borderRadius: BorderRadius.circular(50),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/profilePage');
-                    },
+                    onTap: () {},
                   ),
                 ),
               ],

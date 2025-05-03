@@ -49,19 +49,11 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               Text(
                                 'Guess The Number!',
-                                textScaler: TextScaler.linear(1),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Não tem conta?',
-                                textScaler: TextScaler.linear(1),
-                              ),
-                              Text(
-                                'Cadastre-se',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blueAccent,
+                                ),
                                 textScaler: TextScaler.linear(1),
                               ),
                             ],
@@ -73,6 +65,8 @@ class _LoginPageState extends State<LoginPage> {
                     const Center(
                       child: Text('Login', textScaler: TextScaler.linear(2.5)),
                     ),
+                    const SizedBox(height: 40),
+                    Text('Digite seu e-mail', textScaler: TextScaler.linear(1)),
                     const SizedBox(height: 20),
                     CustomTextField(
                       label: 'E-mail',
@@ -88,7 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
+                    Text('Digite sua senha', textScaler: TextScaler.linear(1)),
+                    const SizedBox(height: 20),
                     CustomTextField(
                       label: 'Senha',
                       hint: 'Digite sua senha...',
@@ -117,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 60),
                     SizedBox(
                       height: 50,
                       child: ElevatedButton(
@@ -129,34 +125,23 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
-                    TextButton(
-                      child: const Text('Esqueci minha senha'),
-                      onPressed: () {},
-                    ),
-                    Container(height: 1, color: Colors.white),
-                    const SizedBox(height: 60),
-                    SizedBox(
-                      height: 50,
-                      child: ElevatedButton.icon(
-                        label: const Text('Continuar com o Google'),
-                        icon: const Icon(Icons.g_mobiledata),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          textStyle: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17.5,
-                          ),
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 40),
                     TextButton(
                       child: const Text('Não tenho conta. Criar conta'),
                       onPressed: () {
                         Navigator.pushNamed(context, '/createAccountPage');
                       },
+                    ),
+                    const SizedBox(height: 100),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Criado por:', textScaler: TextScaler.linear(0.8)),
+                        Text(
+                          'Silas Justino, Kadmiel Jorge, Vinicius Machado e Renata Esther',
+                          textScaler: TextScaler.linear(0.8),
+                        ),
+                      ],
                     ),
                   ],
                 ),

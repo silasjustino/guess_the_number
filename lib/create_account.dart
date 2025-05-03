@@ -34,11 +34,45 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 child: ListView(
                   physics: const ClampingScrollPhysics(),
                   children: [
+                    const SizedBox(height: 20),
+                    const SizedBox(
+                      height: 45,
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Bem vindo ao:',
+                                textScaler: TextScaler.linear(1),
+                              ),
+                              Text(
+                                'Guess The Number!',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blueAccent,
+                                ),
+                                textScaler: TextScaler.linear(1),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
                     const Center(
                       child: Text(
-                        'Crie sua conta',
-                        textScaler: TextScaler.linear(1.3),
+                        'Cadastre-se',
+                        textScaler: TextScaler.linear(2.5),
                       ),
+                    ),
+                    const SizedBox(height: 40),
+                    Text(
+                      'Digite seu nome completo',
+                      textScaler: TextScaler.linear(1),
                     ),
                     const SizedBox(height: 20),
                     CustomTextField(
@@ -55,21 +89,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 10),
-                    CustomTextField(
-                      label: 'Nome de usuário',
-                      icon: Icons.person,
-                      hint: 'Digite seu usuário...',
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return 'O seu sobrenome não pode ser vazio!';
-                        }
-                        if (text.length < 5) {
-                          return 'O usuário precisa ter mais ${5 - text.length} caracteres.';
-                        }
-                        return null;
-                      },
-                    ),
+                    const SizedBox(height: 20),
+                    Text('Digite seu e-mail', textScaler: TextScaler.linear(1)),
                     const SizedBox(height: 20),
                     CustomTextField(
                       label: 'E-mail',
@@ -100,6 +121,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         return null;
                       },
                     ),
+                    const SizedBox(height: 20),
+                    Text('Digite sua senha', textScaler: TextScaler.linear(1)),
                     const SizedBox(height: 20),
                     CustomTextField(
                       label: 'Senha',
@@ -162,8 +185,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'O sistema College+ pede permissão para acessar seus dados básicos de navegação durante o uso da aplicação.',
-                      textScaler: TextScaler.linear(1),
+                      'O sistema "Guess the number" pede permissão para acessar seus dados básicos de navegação durante o uso da aplicação.',
+                      textScaler: TextScaler.linear(0.8),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

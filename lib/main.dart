@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guess_the_number/create_account.dart';
+import 'package:guess_the_number/home_page.dart';
 
 import 'login.dart';
 
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
       home: const LoginPage(),
       routes: {
         '/createAccountPage': (context) => const CreateAccountPage(),
-        '/homePage': (context) => const LoginPage(),
+        '/homePage': (context) => const HomePage(),
       },
     );
   }
