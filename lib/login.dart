@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: const Color.fromARGB(255, 32, 32, 32).withValues(alpha: 0.4),
+            color: const Color.fromARGB(255, 32, 32, 32),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,

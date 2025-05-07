@@ -17,33 +17,19 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         title: RichText(
           text: TextSpan(
-            style: const TextStyle(fontSize: 20, color: Colors.white),
-            children: <TextSpan>[
-              const TextSpan(text: 'Bem vindo, '),
-              TextSpan(
-                text: '$nome!',
-                style: const TextStyle(color: Colors.blue),
-              ),
-            ],
+            style: const TextStyle(fontSize: 26, color: Colors.white),
+            children: <TextSpan>[const TextSpan(text: 'Guess the number')],
           ),
         ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.add_alert_outlined),
-            onPressed: () {},
-          ),
           SizedBox(
             width: 60,
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: Container(
+                  child: SizedBox(
                     width: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: const Center(child: Icon(Icons.abc)),
+                    child: const Center(child: Icon(Icons.menu)),
                   ),
                 ),
                 Positioned.fill(
@@ -57,7 +43,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Stack(),
+      body: Stack(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: const Color.fromARGB(255, 255, 255, 255),
+          ),
+        ],
+      ),
       bottomNavigationBar: const Stack(),
     );
   }

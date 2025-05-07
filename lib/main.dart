@@ -17,12 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         brightness: Brightness.dark,
         primaryColor: Colors.blue[900],
-        scaffoldBackgroundColor: Colors.grey[900],
         appBarTheme: const AppBarTheme().copyWith(
-          backgroundColor: Colors.grey[900],
+          backgroundColor: Color.fromARGB(255, 28, 28, 28),
           toolbarHeight: 60,
-          shape: const Border(bottom: BorderSide(color: Colors.grey)),
-          //shadowColor: Colors.black.withOpacity(0),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
