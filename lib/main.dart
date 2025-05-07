@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guess_the_number/create_account.dart';
 import 'package:guess_the_number/home_page.dart';
+import 'package:guess_the_number/my_profile.dart';
 
 import 'login.dart';
 
@@ -23,30 +24,32 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll<Color>(
+            backgroundColor: MaterialStateProperty.all<Color>(
               Color.fromARGB(255, 0, 137, 237),
             ),
-            shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll<Color>(
+            foregroundColor: MaterialStateProperty.all<Color>(
               Color.fromARGB(255, 0, 137, 237),
             ),
-            shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      initialRoute: '/',
       routes: {
+        '/': (context) => const LoginPage(),
         '/createAccountPage': (context) => const CreateAccountPage(),
         '/homePage': (context) => const HomePage(),
+        '/myProfile': (context) => const MyProfile(),
       },
     );
   }

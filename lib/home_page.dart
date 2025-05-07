@@ -82,10 +82,15 @@ class _HomePageState extends State<HomePage> {
                   icon = Icons.help_outline;
                 });
               }
+              if (value == 'meu perfil') {
+                print("Navegando para MyProfile");
+                Navigator.of(context).pushNamed('/myProfile');
+              }
             },
             itemBuilder:
                 (context) => [
-                  PopupMenuItem(value: 'recomeçar', child: Text('Meu recorde')),
+                  PopupMenuItem(value: 'meu perfil', child: Text('Meu perfil')),
+                  PopupMenuItem(value: 'recomeçar', child: Text('Reiniciar')),
                   PopupMenuItem(value: 'sair', child: Text('Sair')),
                 ],
           ),
