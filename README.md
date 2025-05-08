@@ -1,16 +1,31 @@
-# guess_the_number
+<h1 align="center"> Guess The Number </h1>
 
-A new Flutter project.
+<p align="center">
+Um aplicativo simples do famoso "Jogo da adivinhação" onde o usuário tem que, no menor número de tentativas, acertar qual é o número de 3 dígitos. <br/>
+</p>
 
-## Getting Started
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-This project is a starting point for a Flutter application.
+<br>
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+  <img alt="projeto guess the number" src=".github/preview.png" width="100%">
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Tecnologias
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Flutter
+- Dart
+- Figma
+
+## 💻 Funcionalidades
+
+✅ Login e criação de conta simples com validações;<br>
+✅ Jogo da adivinhação, com contagem das tentativas e seleção dos números na própria interface;<br>
+✅ Menu com opções de perfil, reiniciar o jogo e sair;<br>
+✅ Perfil que mostra o e-mail atual, e o recorde (acerto com menor número de tentativas).<br>
