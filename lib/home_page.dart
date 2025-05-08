@@ -17,17 +17,20 @@ class _HomePageState extends State<HomePage> {
   String message = 'Dê um palpite...';
   IconData icon = Icons.help_outline;
   final singleton = Singleton.instance;
+  bool gameOver = false; // Variável de controle
 
   void checkGuess() {
     int userGuess = guess[0] * 100 + guess[1] * 10 + guess[2];
     setState(() {
       attempts++;
       if (userGuess == targetNumber) {
-        if (singleton.recorde.value > attempts) {
-          singleton.recorde.value = attempts;
+        if (singleton.recorde.value == -1 ||
+            attempts < singleton.recorde.value) {
+          singleton.recorde.value = attempts; // Atualiza o recorde
         }
         message = "Parabéns!";
         icon = Icons.check_circle_outline;
+        gameOver = true; // Bloqueia o botão quando o jogo acabar
       } else if (userGuess > targetNumber) {
         message = "É menor!";
       } else {
@@ -86,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                   attempts = 0;
                   message = 'Dê um palpite...';
                   icon = Icons.help_outline;
+                  gameOver = false; // Reinicia o estado do jogo
                 });
               }
               if (value == 'meu perfil') {
@@ -164,7 +168,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             ElevatedButton(
-              onPressed: attempts >= 0 ? checkGuess : null,
+              onPressed:
+                  gameOver
+                      ? null
+                      : checkGuess, // Bloqueia o botão quando gameOver for true
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               ),
