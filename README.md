@@ -11,10 +11,6 @@ Um aplicativo simples do famoso "Jogo da adivinhação" onde o usuário tem que,
 
 <br>
 
-<p align="center">
-  <img alt="projeto guess the number" src=".github/preview.png">
-</p>
-
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
