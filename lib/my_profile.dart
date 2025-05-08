@@ -1,9 +1,12 @@
 // lib/my_profile.dart
 
 import 'package:flutter/material.dart';
+import 'package:guess_the_number/models/singleton.dart';
 
 class MyProfile extends StatelessWidget {
-  const MyProfile({super.key});
+  MyProfile({super.key});
+
+  final singleton = Singleton.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +33,31 @@ class MyProfile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text('Nome: Silas Justino', style: TextStyle(fontSize: 20)),
-            const SizedBox(height: 10),
-            const Text(
-              'Email: silas@exemplo.com',
-              style: TextStyle(fontSize: 20),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+                Text(
+                  "Email: ${singleton.email}",
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 20),
+                ValueListenableBuilder(
+                  valueListenable: singleton.recorde,
+                  builder: (BuildContext context, value, Widget? child) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Melhor jogada: ", style: TextStyle(fontSize: 20)),
+                        Text(
+                          "${value == -1 ? "Não houve" : value}",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),

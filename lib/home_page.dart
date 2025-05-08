@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:guess_the_number/models/singleton.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -14,12 +16,16 @@ class _HomePageState extends State<HomePage> {
   List<int> guess = [0, 0, 0];
   String message = 'Dê um palpite...';
   IconData icon = Icons.help_outline;
+  final singleton = Singleton.instance;
 
   void checkGuess() {
     int userGuess = guess[0] * 100 + guess[1] * 10 + guess[2];
     setState(() {
       attempts++;
       if (userGuess == targetNumber) {
+        if (singleton.recorde.value > attempts) {
+          singleton.recorde.value = attempts;
+        }
         message = "Parabéns!";
         icon = Icons.check_circle_outline;
       } else if (userGuess > targetNumber) {
@@ -83,7 +89,6 @@ class _HomePageState extends State<HomePage> {
                 });
               }
               if (value == 'meu perfil') {
-                print("Navegando para MyProfile");
                 Navigator.of(context).pushNamed('/myProfile');
               }
             },

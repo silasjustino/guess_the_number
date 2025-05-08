@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String? text)? validator;
   final void Function(String? text)? onSaved;
   final void Function(String text)? onChanged;
+  final TextEditingController? controller;
 
   const CustomTextField({
     super.key,
@@ -20,11 +21,13 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.obscureText = false,
     this.suffix,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: validator,
       onSaved: onSaved,

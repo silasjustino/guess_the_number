@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guess_the_number/models/singleton.dart';
 import '/widgets/custom_textfield.dart';
 import 'package:string_validator/string_validator.dart' as validator;
 
@@ -10,8 +11,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final singleton = Singleton.instance;
   final formKey = GlobalKey<FormState>();
   bool obscureTextConfirm = true;
+  final emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                       label: 'E-mail',
                       icon: Icons.email,
                       hint: 'Digite seu e-mail...',
+                      controller: emailController,
                       validator: (text) {
                         if (text == null || text.isEmpty) {
                           return 'O e-mail não pode ser vazio!';
@@ -120,6 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: const Text('Entrar'),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
+                            singleton.email = emailController.text.trim();
                             Navigator.pushNamed(context, '/homePage');
                           }
                         },
@@ -151,5 +156,11 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
   }
 }

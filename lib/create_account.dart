@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guess_the_number/models/singleton.dart';
 import 'package:string_validator/string_validator.dart' as validator;
 import 'widgets/custom_textfield.dart';
 
@@ -13,6 +14,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   final formKeyCreate = GlobalKey<FormState>();
   bool obscureTextConfirmCreate = true;
   bool checkTermCreate = false;
+  final emailController = TextEditingController();
+  final singleton = Singleton.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -70,32 +73,13 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    Text(
-                      'Digite seu nome completo',
-                      textScaler: TextScaler.linear(1),
-                    ),
-                    const SizedBox(height: 20),
-                    CustomTextField(
-                      label: 'Nome completo',
-                      icon: Icons.person,
-                      hint: 'Digite seu nome completo...',
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return 'O seu nome não pode ser vazio!';
-                        }
-                        if (text.length < 5) {
-                          return 'O nome precisa ter mais ${5 - text.length} caracteres.';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 20),
                     Text('Digite seu e-mail', textScaler: TextScaler.linear(1)),
                     const SizedBox(height: 20),
                     CustomTextField(
                       label: 'E-mail',
                       icon: Icons.email,
                       hint: 'Digite seu e-mail...',
+                      controller: emailController,
                       validator: (text) {
                         if (text == null || text.isEmpty) {
                           return 'O e-mail não pode ser vazio!';
@@ -211,6 +195,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                 ? null
                                 : () {
                                   if (formKeyCreate.currentState!.validate()) {
+                                    singleton.email =
+                                        emailController.text.trim();
                                     Navigator.pushNamed(context, '/homePage');
                                   }
                                 },
@@ -225,5 +211,11 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
   }
 }

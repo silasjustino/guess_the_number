@@ -24,20 +24,20 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
               Color.fromARGB(255, 0, 137, 237),
             ),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(
+            foregroundColor: WidgetStateProperty.all<Color>(
               Color.fromARGB(255, 0, 137, 237),
             ),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginPage(),
         '/createAccountPage': (context) => const CreateAccountPage(),
         '/homePage': (context) => const HomePage(),
-        '/myProfile': (context) => const MyProfile(),
+        '/myProfile': (context) => MyProfile(),
       },
     );
   }
